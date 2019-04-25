@@ -33,6 +33,9 @@ module.exports.msg91SendMultiple = (authkey, numbers, message, senderid, route, 
 //check error response for msg91
 function CheckErrorForMsg91(body, callback) {
     switch (body) {
+        case 'code: 200':
+            callback('Ok');
+            break;
         case 'code: 101':
             callback('Missing Mobile No.');
             break;
