@@ -17,5 +17,9 @@
     "smshub",
     "react native smsgateway",
     "rnsmsgateway"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ratneshxc/smsgateway.git"
+  }
 }
