@@ -1,8 +1,8 @@
 var request = require('request');
 
-module.export.checkWorking = msg => "Yo " + msg;
+module.exports.checkWorking = msg => "Yo " + msg;
 
-module.export.msg91SendOne = (authkey, number, message, senderid, route, dialcode) => {
+module.exports.msg91SendOne = (authkey, number, message, senderid, route, dialcode) => {
     var url = 'http://api.msg91.com/api/sendhttp.php?authkey=' + authkey + '&mobiles=' + number + '&message=' + message + '&sender=' + senderid + '&route=' + route + '&country=' + dialcode;
     var encodeurl = encodeURI(url);
     request(encodeurl, function (error, response, body) {
@@ -15,7 +15,7 @@ module.export.msg91SendOne = (authkey, number, message, senderid, route, dialcod
     });
 }
 
-module.export.msg91SendMultiple = (authkey, numbers, message, senderid, route, dialcode) => {
+module.exports.msg91SendMultiple = (authkey, numbers, message, senderid, route, dialcode) => {
     numbers.forEach(function (number) {
         var url = 'http://api.msg91.com/api/sendhttp.php?authkey=' + authkey + '&mobiles=' + number + '&message=' + message + '&sender=' + senderid + '&route=' + route + '&country=' + dialcode;
         var encodeurl = encodeURI(url);
@@ -86,7 +86,7 @@ function CheckErrorForMsg91(body, callback) {
     }
 }
 
-module.export.textlocalSendOne = (username, hash, message, number, sender, test) => {
+module.exports.textlocalSendOne = (username, hash, message, number, sender, test) => {
     let url = 'http://api.textlocal.in/send/?' + username + hash + message + number + sender + test;
     let encodeurl = encodeURI(url);
     request(encodeurl, function (error, response, body) {
@@ -99,7 +99,7 @@ module.export.textlocalSendOne = (username, hash, message, number, sender, test)
     });
 }
 
-module.export.textlocalSendMultiple = (username, hash, message, numbers, sender, test) => {
+module.exports.textlocalSendMultiple = (username, hash, message, numbers, sender, test) => {
     numbers.forEach(function (number) {
         let url = 'http://api.textlocal.in/send/?' + username + hash + message + number + sender + test;
         let encodeurl = encodeURI(url);
